@@ -1,33 +1,42 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-bool cmp1(pair<int, int> a, pair<int, int> b){
-    if (a.second!=b.second) return a.second>b.second;
-    else return return a.first<b.first;
+map<int, int> mp;
+
+bool cmp1(int a, int b){
+    if (mp[a]!=mp[b]) return mp[a]>mp[b];
+    return a<b;
 }
 
-bool cmp2(pair<int, int> a, pair<int, int> b){
-    return a.second>b.second;
+bool cmp2(int a, int b){
+    return mp[a]>mp[b];
+}
+
+void first(vector<int> v, int n){
+    sort(v.begin(), v.end(), cmp1);
+    for (int i=0;i<n;i++){
+        cout<<v[i]<<" ";
+    }
+}
+
+void second(vector<int> v, int n){
+    stable_sort(v.begin(), v.end(), cmp2);
+    for (int i=0;i<n;i++){
+        while (mp[v[i]]>0){
+            cout<<v[i]<<" ";
+            mp[v[i]]--;
+        }
+    }
 }
 
 int main(){
-    int n; cin>>n;
-    int a[n];
-    map<int, int> mp;
+    int n,t; cin>>n;
+    vector<int> v;
     for (int i=0;i<n;i++){
-        cin>>a[i];
-        mp[a[i]]++;
+        cin>>t; v.push_back(t);
+        mp[t]++;
     }
-    vector<pair<int, int>> v;
-    for (auto it=mp.begin(); it!=mp.end(); it++){
-        v.push_back({(*it).first,(*it).second});
-    }
-
-    sort(v.begin(), v.end(), cmp1);
-    for (auto it=v.begin(), it!=v.end(); it++) cout<<(*it)
-    for (int i=0;i<n;i++){
-        v[i] = {a[i], mp[a[i]]};
-    }
-    stable_sort(v.begin(), v.end(), cmp2);
-
+    first(v, n);
+    cout<<endl;
+    second(v,n);
 }
