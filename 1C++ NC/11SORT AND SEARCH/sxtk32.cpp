@@ -8,15 +8,14 @@ int main(){
 	for (int i=0;i<m;i++) cin>>b[i];
 	sort(a,a+n);
 	sort(b,b+m);
-	
-	int i=0,j=0, c=0;
+
+	int i=0, j=0, c=0;
 	while (i<n and j<m){
-		if (abs(a[i]-b[j]) <=1){
-			c++;
-			i++;
-			j++;
-		} else if (a[i]<b[j]) i++;
-		else j++;
+        if (abs(a[i]-b[j])<=1){
+            c++; i++; j++;
+        } else if (a[i]<b[j]) i++;
+        else j++;
 	}
+
 	cout<<c;
 }

@@ -17,6 +17,9 @@ int main(){
     sort(v.begin(), v.end(), cmp);
 
     for (int i=0;i<n;i++){
+        cout<<v[i].first<<" "<<v[i].second<<endl;
+    }
+    for (int i=0;i<n;i++){
         if (p>v[i].first){
             p+=v[i].second;
         } else {
