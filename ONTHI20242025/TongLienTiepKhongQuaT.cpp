@@ -1,22 +1,21 @@
 #include<bits/stdc++.h>
 using namespace std;
+#define ll long long
 
 int main(){
-    ios_base::sync_with_stdio(false); cin.tie(0);
-    int n,t,x; cin>>n>>t;
-    long long s[n+1];
-    s[0]=0;
-    for (int i=1;i<=n;i++){
-        cin>>x; s[i]=s[i-1]+x;
-    }
+    int n,t; cin>>n>>t;
+    int a[n];
+    for (int i=0;i<n;i++) cin>>a[i];
 
-    for (int i=n;i>=1;i--){
-        for (int j=0;j<=n-i;j++){
-            long long temp = s[j+i]-s[j];
-            if (temp<=t){
-                cout<<i;
-                return 0;
-            }
+    ll s=a[0];
+    int l=0, r=0, ml=0;
+    while (r<n){
+        if (s<=t){
+            ml = max(ml, r-l+1);
+            s+=a[++r];
+        } else {
+            l++;s-=a[l];
         }
     }
+    cout<<ml;
 }
