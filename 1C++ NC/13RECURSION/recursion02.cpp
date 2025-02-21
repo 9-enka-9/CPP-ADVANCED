@@ -2,10 +2,8 @@
 using namespace std;
 
 int recurse(int n){
-    if (n==1){
-        return 1;
-    }
-    return n+recurse(n-1);
+    if (n==1) return 1;
+    return n*n+recurse(n-1);
 }
 
 int main(){
