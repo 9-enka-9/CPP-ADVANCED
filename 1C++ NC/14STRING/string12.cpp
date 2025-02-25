@@ -13,11 +13,22 @@ bool palin(string s){
 }
 
 int main(){
+    vector<string> v;
     string s;
     getline(cin,s);
     stringstream ss(s);
     string t;
+    set<string> seen;
     while (ss>>t){
-        if (palin(t)) cout<<t<<" ";
+        if (seen.find(t)==seen.end() and palin(t)) v.push_back(t);
+    }
+
+    stable_sort(v.begin(), v.end(), [](string a, string b){
+        int na=a.size(), nb=b.size();
+        if (na!=nb) return na<nb;
+    });
+    int n=v.size();
+    for (int i=0;i<n;i++){
+        cout<<v[i]<<" ";
     }
 }
