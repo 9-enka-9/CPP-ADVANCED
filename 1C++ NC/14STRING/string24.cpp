@@ -8,10 +8,10 @@ int main(){
     for (int i=0;i<n;i++){
         mp[s[i]]++;
     }
-    long long c=0;
+    long long c=s.size();
     for (map<char, int>::iterator it=mp.begin(); it!=mp.end(); it++){
         if ((*it).second>1){
-            c+=(1ll*((*it).second-1)*(*it).second);
+            c+=((1ll*((*it).second-1)*(*it).second)/2);
         }
     }
     cout<<c;
