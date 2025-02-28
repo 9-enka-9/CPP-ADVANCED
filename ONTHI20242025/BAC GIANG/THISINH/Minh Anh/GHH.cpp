@@ -14,15 +14,15 @@ void sanguoc(){
 }
 
 int main(){
-//    freopen("GHH.INP", "r", stdin);
-//    freopen("GHH.OUT", "w", stdout);
     ios_base::sync_with_stdio(false); cin.tie(0);
     sanguoc();
+    freopen("GHH.INP", "r", stdin);
+    freopen("GHH.OUT", "w", stdout);
     int n; cin>>n;
-    int a[n];
-    for (int i=0;i<n;i++) cin>>a[i];
+    int x;
     for (int i=0;i<n;i++) {
-        if (tonguoc[a[i]]>=a[i]) cout<<1<<endl;
+        cin>>x;
+        if (tonguoc[x]>=x) cout<<1<<endl;
         else cout<<0<<endl;
     }
 }
