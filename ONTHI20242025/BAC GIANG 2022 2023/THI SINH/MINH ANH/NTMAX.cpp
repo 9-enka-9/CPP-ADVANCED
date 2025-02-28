@@ -4,20 +4,18 @@ const int maxn = 1e6*5;
 bool p[maxn+3];
 
 void sang(){
-    for (int i=2;i<maxn;i++) p[i]=true;
+    for (int i=2;i<=maxn;i++) p[i]=true;
     p[0]=p[1]=false;
-    for (int i=2;i*i<maxn;i++){
+    for (int i=2;i*i<=maxn;i++)
         if (p[i])
-            for (int j=i*i;j<maxn;j+=i){
+            for (int j=i*i;j<=maxn;j+=i)
                 p[j]=false;
-            }
-    }
 }
 
 int main(){
     sang();
-//    freopen("NTMAX.INP", "r", stdin);
-//    freopen("NTMAX.OUT", "w", stdout);
+    freopen("NTMAX.INP", "r", stdin);
+    freopen("NTMAX.OUT", "w", stdout);
     string s; cin>>s;
     s+='a';
     int n = s.size();
